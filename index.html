@@ -5,43 +5,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gudi Padwa Greeting Generator</title>
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
-        #greeting { font-size: 24px; margin-bottom: 20px; }
-        #counter { font-size: 18px; color: gray; }
+        body { font-family: Arial, sans-serif; text-align: center; margin: 50px; }
+        input[type="text"] { width: 300px; margin: 10px; }
+        #preview { border: 1px solid #ccc; padding: 20px; margin-top: 20px; }
     </style>
 </head>
 <body>
     <h1>Gudi Padwa Greeting Generator</h1>
-    <div id="greeting"></div>
-    <button id="generate">Generate Greeting</button>
-    <div id="counter">Visiter Count: <span id="visitorCount">0</span></div>
+    <input type="text" id="name" placeholder="Enter your name"><br>
+    <input type="text" id="role" placeholder="Enter your role"><br>
+    <input type="text" id="school" placeholder="Enter your school"><br>
+    <input type="file" id="photoUpload"><br>
+    <button onclick="generateGreeting()">Generate Greeting</button>
+    <div id="preview"></div>
+    <button onclick="downloadGreeting()">Download Greeting</button>
+    <button onclick="shareOnWhatsApp()">Share on WhatsApp</button>
+    <button onclick="copyLink()">Copy Link</button>
+    <p>Visitors: <span id="visitorCount"></span></p>
 
     <script>
-        const greetings = [
-            "Happy Gudi Padwa! May this year bring you joy and prosperity!",
-            "May Gudi Padwa fill your life with happiness and success!",
-            "Wishing you a prosperous Gudi Padwa! Enjoy the celebrations!",
-            "Happy Gudi Padwa! May you achieve all your dreams this year!"
-        ];
-
-        const greetingDiv = document.getElementById('greeting');
-        const visitorCountDisplay = document.getElementById('visitorCount');
-
-        // Load visitor count from localStorage
-        let visitorCount = localStorage.getItem('visitorCount') ? parseInt(localStorage.getItem('visitorCount')) : 0;
-        visitorCountDisplay.textContent = visitorCount;
+        // Visitor counter
+        let visitorCount = localStorage.getItem('visitorCount') || 0;
+        visitorCount++;
+        localStorage.setItem('visitorCount', visitorCount);
+        document.getElementById('visitorCount').innerText = visitorCount;
 
         function generateGreeting() {
-            const randomGreeting = greetings[Math.floor(Math.random() * greetings.length)];
-            greetingDiv.textContent = randomGreeting;
+            const name = document.getElementById('name').value;
+            const role = document.getElementById('role').value;
+            const school = document.getElementById('school').value;
+            const photo = document.getElementById('photoUpload').files[0];
+            const reader = new FileReader();
 
-            // Increment the visitor count
-            visitorCount++;
-            localStorage.setItem('visitorCount', visitorCount);
-            visitorCountDisplay.textContent = visitorCount;
+            reader.onloadend = () => {
+                const img = `<img src="${reader.result}" alt="Uploaded Photo" style="width:100px;height:100px;">`;
+                const greeting = `<h2>Happy Gudi Padwa!</h2>\n<p>Greetings from ${name}, a ${role} from ${school}!</p>\n${img}`;
+                document.getElementById('preview').innerHTML = greeting;
+            };
+
+            if (photo) {
+                reader.readAsDataURL(photo);
+            } else {
+                alert('Please upload a photo.');
+            }
         }
 
-        document.getElementById('generate').addEventListener('click', generateGreeting);
+        function downloadGreeting() {
+            const element = document.createElement('a');
+            const greetingContent = document.getElementById('preview').innerHTML;
+            const blob = new Blob([greetingContent], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            element.href = url;
+            element.download = 'greeting.html';
+            document.body.appendChild(element);
+            element.click();
+            document.body.removeChild(element);
+        }
+
+        function shareOnWhatsApp() {
+            const greetingContent = document.getElementById('preview').innerHTML;
+            const url = encodeURIComponent(greetingContent);
+            window.open(`https://api.whatsapp.com/send?text=${url}`, '_blank');
+        }
+
+        function copyLink() {
+            const greetingContent = document.getElementById('preview').innerHTML;
+            navigator.clipboard.writeText(greetingContent).then(() => {
+                alert('Greeting copied to clipboard!');
+            });
+        }
     </script>
 </body>
 </html>
