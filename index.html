@@ -1,20 +1,47 @@
-<script>
-  // Check if the counter exists in local storage
-  let visitorCount = localStorage.getItem('visitorCount');
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gudi Padwa Greeting Generator</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+        #greeting { font-size: 24px; margin-bottom: 20px; }
+        #counter { font-size: 18px; color: gray; }
+    </style>
+</head>
+<body>
+    <h1>Gudi Padwa Greeting Generator</h1>
+    <div id="greeting"></div>
+    <button id="generate">Generate Greeting</button>
+    <div id="counter">Visiter Count: <span id="visitorCount">0</span></div>
 
-  // If not, initialize it to 0
-  if (!visitorCount) {
-    visitorCount = 0;
-  }
+    <script>
+        const greetings = [
+            "Happy Gudi Padwa! May this year bring you joy and prosperity!",
+            "May Gudi Padwa fill your life with happiness and success!",
+            "Wishing you a prosperous Gudi Padwa! Enjoy the celebrations!",
+            "Happy Gudi Padwa! May you achieve all your dreams this year!"
+        ];
 
-  // Increment the counter
-  visitorCount++;
+        const greetingDiv = document.getElementById('greeting');
+        const visitorCountDisplay = document.getElementById('visitorCount');
 
-  // Store the updated count back to local storage
-  localStorage.setItem('visitorCount', visitorCount);
+        // Load visitor count from localStorage
+        let visitorCount = localStorage.getItem('visitorCount') ? parseInt(localStorage.getItem('visitorCount')) : 0;
+        visitorCountDisplay.textContent = visitorCount;
 
-  // Display the counter on the page
-  document.addEventListener('DOMContentLoaded', (event) => {
-    document.getElementById('visitorCountDisplay').innerText = visitorCount;
-  });
-</script>
+        function generateGreeting() {
+            const randomGreeting = greetings[Math.floor(Math.random() * greetings.length)];
+            greetingDiv.textContent = randomGreeting;
+
+            // Increment the visitor count
+            visitorCount++;
+            localStorage.setItem('visitorCount', visitorCount);
+            visitorCountDisplay.textContent = visitorCount;
+        }
+
+        document.getElementById('generate').addEventListener('click', generateGreeting);
+    </script>
+</body>
+</html>
