@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>गुढीपाडवा शुभेच्छापत्र - जिल्हा परिषद पालघर</title>
+<meta property="og:title" content="गुढीपाडवा शुभेच्छापत्र - जिल्हा परिषद पालघर">
+<meta property="og:description" content="मी जि. प. शाळेचा विद्यार्थी - गुढीपाडवा पट वाढवा">
+<meta property="og:image" content="logo.png">
+<link rel="icon" href="logo.png" type="image/png">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Noto Sans Devanagari', sans-serif;
+    background: linear-gradient(135deg, #fff5e6 0%, #ffe0b2 50%, #ffcc80 100%);
+    min-height: 100vh;
+    color: #333;
+}
+
+/* Header */
+.page-header {
+    background: linear-gradient(135deg, #b71c1c, #e65100, #ff8f00);
+    color: white;
+    padding: 16px 20px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(183, 28, 28, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.page-header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 20px,
+        rgba(255,255,255,0.03) 20px,
+        rgba(255,255,255,0.03) 40px
+    );
+}
+
+.header-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.page-header img {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border: 3px solid rgba(255,255,255,0.8);
+    object-fit: cover;
+}
+
+.header-text h1 {
+    font-size: 1.4em;
+    font-weight: 800;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.header-text .subtitle {
+    font-size: 1em;
+    opacity: 0.9;
+    font-weight: 500;
+}
+
+/* Container */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+/* Form Panel */
+.form-panel {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+    width: 100%;
+    max-width: 480px;
+    border: 1px solid rgba(255, 152, 0, 0.15);
+}
+
+.form-panel h2 {
+    color: #e65100;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 1.25em;
+    font-weight: 700;
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #5d4037;
+    font-size: 15px;
+}
+
+.form-group input[type="text"] {
+    width: 100%;
+    padding: 11px 14px;
+    border: 2px solid #ffe0b2;
+    border-radius: 10px;
+    font-size: 16px;
+    font-family: 'Noto Sans Devanagari', sans-serif;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    background: #fffaf5;
+}
+
+.form-group input[type="text"]:focus {
+    outline: none;
+    border-color: #e65100;
+    box-shadow: 0 0 0 3px rgba(230, 81, 0, 0.12);
+    background: white;
+}
+
+.photo-upload {
+    border: 2px dashed #ffcc80;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    background: #fffaf5;
+    position: relative;
+}
+
+.photo-upload:hover {
+    border-color: #e65100;
+    background: #fff3e0;
+}
+
+.photo-upload .upload-icon {
+    font-size: 36px;
+    color: #ff9800;
+    margin-bottom: 6px;
+    line-height: 1;
+}
+
+.photo-upload .upload-text {
+    color: #8d6e63;
+    font-size: 14px;
+}
+
+.photo-preview-thumb {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #ff9800;
+    display: none;
+    margin: 8px auto 0;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-family: 'Noto Sans Devanagari', sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+}
+
+.btn:active { transform: scale(0.97); }
+
+.btn-generate {
+    background: linear-gradient(135deg, #e65100, #ff8f00);
+    color: white;
+    width: 100%;
+    box-shadow: 0 4px 15px rgba(230, 81, 0, 0.25);
+    font-size: 17px;
+    padding: 14px;
+}
+
+.btn-generate:hover {
+    box-shadow: 0 6px 20px rgba(230, 81, 0, 0.35);
+    filter: brightness(1.05);
+}
+
+/* Preview Section */
+.preview-section {
+    text-align: center;
+    width: 100%;
+    max-width: 480px;
+}
+
+.preview-section h2 {
+    color: #e65100;
+    margin-bottom: 14px;
+    font-size: 1.25em;
+    font-weight: 700;
+}
+
+.canvas-wrapper {
+    display: inline-block;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+    background: #f5f5f5;
+    width: 100%;
+    max-width: 380px;
+}
+
+#greetingCanvas {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 18px;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 480px;
+}
+
+.btn-download {
+    background: linear-gradient(135deg, #2e7d32, #43a047);
+    color: white;
+    flex: 1;
+    min-width: 180px;
+    box-shadow: 0 4px 12px rgba(46, 125, 50, 0.25);
+}
+
+.btn-download:hover {
+    box-shadow: 0 6px 18px rgba(46, 125, 50, 0.35);
+    filter: brightness(1.05);
+}
+
+.btn-whatsapp {
+    background: linear-gradient(135deg, #128C7E, #25D366);
+    color: white;
+    flex: 1;
+    min-width: 180px;
+    box-shadow: 0 4px 12px rgba(18, 140, 126, 0.25);
+}
+
+.btn-whatsapp:hover {
+    box-shadow: 0 6px 18px rgba(18, 140, 126, 0.35);
+    filter: brightness(1.05);
+}
+
+.btn-icon {
+    font-size: 20px;
+    line-height: 1;
+}
+
+/* Audio */
+.audio-section {
+    text-align: center;
+    margin: 10px 0 30px;
+    opacity: 0.7;
+}
+
+.audio-section audio {
+    max-width: 240px;
+    height: 36px;
+}
+
+/* Loading overlay */
+.loading-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(255,248,225,0.95);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    transition: opacity 0.4s;
+}
+
+.loading-overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.loading-spinner {
+    width: 48px;
+    height: 48px;
+    border: 4px solid #ffe0b2;
+    border-top-color: #e65100;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin-bottom: 16px;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.loading-text {
+    color: #e65100;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 16px;
+    color: #8d6e63;
+    font-size: 13px;
+    border-top: 1px solid rgba(255, 152, 0, 0.15);
+    margin-top: 10px;
+}
+
+@media (min-width: 768px) {
+    .main-content {
+        display: flex;
+        gap: 28px;
+        align-items: flex-start;
+        justify-content: center;
+        width: 100%;
+    }
+    .form-panel { max-width: 380px; }
+    .preview-section { max-width: 400px; }
+    .action-buttons { max-width: 400px; margin-left: auto; margin-right: auto; }
+}
+</style>
+</head>
+<body>
+
+<div class="loading-overlay" id="loadingOverlay">
+    <div class="loading-spinner"></div>
+    <div class="loading-text">शुभेच्छापत्र तयार होत आहे...</div>
+</div>
+
+<div class="page-header">
+    <div class="header-content">
+        <img src="logo.png" alt="जिल्हा परिषद पालघर">
+        <div class="header-text">
+            <h1>जिल्हा परिषद पालघर</h1>
+            <div class="subtitle">गुढीपाडवा शुभेच्छापत्र</div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="main-content">
+        <!-- Form -->
+        <div class="form-panel">
+            <h2>माहिती भरा</h2>
+
+            <div class="form-group">
+                <label for="nameInput">नाव</label>
+                <input type="text" id="nameInput" placeholder="तुमचे नाव लिहा">
+            </div>
+
+            <div class="form-group">
+                <label for="roleInput">पद</label>
+                <input type="text" id="roleInput" placeholder="तुमचे पद लिहा">
+            </div>
+
+            <div class="form-group">
+                <label for="schoolInput">शाळा</label>
+                <input type="text" id="schoolInput" placeholder="शाळेचे नाव लिहा">
+            </div>
+
+            <div class="form-group">
+                <label>तुमचा फोटो जोडा</label>
+                <div class="photo-upload" id="photoUploadArea">
+                    <div class="upload-icon" id="uploadIcon">&#128247;</div>
+                    <div class="upload-text" id="uploadText">फोटो निवडण्यासाठी येथे क्लिक करा</div>
+                    <img class="photo-preview-thumb" id="photoThumb" alt="photo preview">
+                    <input type="file" id="photoInput" accept="image/*" style="display:none">
+                </div>
+            </div>
+
+            <button class="btn btn-generate" onclick="generateCard()">
+                शुभेच्छापत्र तयार करा
+            </button>
+        </div>
+
+        <!-- Preview -->
+        <div class="preview-section">
+            <h2>शुभेच्छापत्र पूर्वावलोकन</h2>
+            <div class="canvas-wrapper">
+                <canvas id="greetingCanvas" width="1080" height="1920"></canvas>
+            </div>
+
+            <div class="action-buttons">
+                <button class="btn btn-download" onclick="downloadGreeting()">
+                    <span class="btn-icon">&#128229;</span> Download Greeting
+                </button>
+                <button class="btn btn-whatsapp" onclick="shareWhatsApp()">
+                    <span class="btn-icon">&#128242;</span> Share to WhatsApp
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="audio-section">
+    <audio id="bgMusic" loop controls>
+        <source src="music.mp3.mp3" type="audio/mpeg">
+    </audio>
+</div>
+
+<div class="footer">
+    जिल्हा परिषद पालघर &copy; 2026
+</div>
+
+<script>
+(function() {
+    'use strict';
+
+    var CW = 1080, CH = 1920;
+    var canvas = document.getElementById('greetingCanvas');
+    var ctx = canvas.getContext('2d');
+
+    var logoImg = new Image();
+    var gudiImg = new Image();
+    var userPhoto = null;
+
+    logoImg.src = 'logo.png';
+    gudiImg.src = 'gudi.png.png';
+
+    // Font name
+    var FONT = '"Noto Sans Devanagari"';
+
+    // Wait for resources then initialize
+    var logoReady = new Promise(function(r) {
+        logoImg.onload = function() { r(); };
+        logoImg.onerror = function() { r(); };
+    });
+    var gudiReady = new Promise(function(r) {
+        gudiImg.onload = function() { r(); };
+        gudiImg.onerror = function() { r(); };
+    });
+
+    Promise.all([
+        document.fonts.ready,
+        logoReady,
+        gudiReady
+    ]).then(function() {
+        initApp();
+        document.getElementById('loadingOverlay').classList.add('hidden');
+    });
+
+    function initApp() {
+        handleURLParams();
+        drawCard('', '', '', null);
+
+        // Check if URL has params, auto-generate
+        var params = new URLSearchParams(window.location.search);
+        if (params.get('name') || params.get('role') || params.get('school')) {
+            generateCard();
+        }
+    }
+
+    // Photo upload
+    document.getElementById('photoUploadArea').addEventListener('click', function() {
+        document.getElementById('photoInput').click();
+    });
+
+    document.getElementById('photoInput').addEventListener('change', function(e) {
+        var file = e.target.files[0];
+        if (!file) return;
+
+        var reader = new FileReader();
+        reader.onload = function(evt) {
+            var img = new Image();
+            img.onload = function() {
+                userPhoto = img;
+                var thumb = document.getElementById('photoThumb');
+                thumb.src = evt.target.result;
+                thumb.style.display = 'block';
+                document.getElementById('uploadIcon').style.display = 'none';
+                document.getElementById('uploadText').textContent = 'फोटो बदलण्यासाठी क्लिक करा';
+            };
+            img.src = evt.target.result;
+        };
+        reader.readAsDataURL(file);
+    });
+
+    // Generate card
+    window.generateCard = function() {
+        var name = document.getElementById('nameInput').value.trim();
+        var role = document.getElementById('roleInput').value.trim();
+        var school = document.getElementById('schoolInput').value.trim();
+
+        drawCard(name, role, school, userPhoto);
+
+        // Update URL with params
+        var url = window.location.origin + window.location.pathname +
+            '?name=' + encodeURIComponent(name) +
+            '&role=' + encodeURIComponent(role) +
+            '&school=' + encodeURIComponent(school);
+        window.history.replaceState({}, '', url);
+
+        // Scroll to preview on mobile
+        if (window.innerWidth < 768) {
+            document.querySelector('.preview-section').scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
+    // Download
+    window.downloadGreeting = function() {
+        var link = document.createElement('a');
+        link.download = 'gudhipadwa-shubhechha.png';
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+    };
+
+    // WhatsApp share
+    window.shareWhatsApp = function() {
+        var name = document.getElementById('nameInput').value.trim();
+        var role = document.getElementById('roleInput').value.trim();
+        var school = document.getElementById('schoolInput').value.trim();
+
+        var url = window.location.origin + window.location.pathname +
+            '?name=' + encodeURIComponent(name) +
+            '&role=' + encodeURIComponent(role) +
+            '&school=' + encodeURIComponent(school);
+
+        var text = 'गुढीपाडव्याच्या हार्दिक शुभेच्छा! 🎉🏮\nमी जि. प. शाळेचा विद्यार्थी\n' + url;
+        window.open('https://wa.me/?text=' + encodeURIComponent(text));
+    };
+
+    // URL params
+    function handleURLParams() {
+        var params = new URLSearchParams(window.location.search);
+        var name = params.get('name') || '';
+        var role = params.get('role') || '';
+        var school = params.get('school') || '';
+
+        if (name) document.getElementById('nameInput').value = name;
+        if (role) document.getElementById('roleInput').value = role;
+        if (school) document.getElementById('schoolInput').value = school;
+    }
+
+    // =========================================================
+    // CANVAS DRAWING
+    // =========================================================
+
+    function drawCard(name, role, school, photo) {
+        ctx.clearRect(0, 0, CW, CH);
+
+        drawBackground();
+        drawTopBar();
+        drawDecorativeBorder();
+        drawLogo();
+        drawOrgName();
+        drawDivider(460, 300);
+        drawHeadline();
+        drawDivider(590, 220);
+        drawUserPhoto(photo);
+        drawUserDetails(name, role, school);
+        drawBanner();
+        drawGudiImages();
+        drawBottomBar();
+        drawCardBorder();
+    }
+
+    // Background: warm gradient with subtle pattern
+    function drawBackground() {
+        var bg = ctx.createLinearGradient(0, 0, 0, CH);
+        bg.addColorStop(0, '#7B1818');
+        bg.addColorStop(0.06, '#C62828');
+        bg.addColorStop(0.12, '#EF6C00');
+        bg.addColorStop(0.20, '#FFF8E1');
+        bg.addColorStop(0.50, '#FFF8E1');
+        bg.addColorStop(0.72, '#FFF8E1');
+        bg.addColorStop(0.82, '#FFE0B2');
+        bg.addColorStop(0.90, '#EF6C00');
+        bg.addColorStop(0.96, '#C62828');
+        bg.addColorStop(1, '#7B1818');
+        ctx.fillStyle = bg;
+        ctx.fillRect(0, 0, CW, CH);
+
+        // Subtle dot pattern in cream area
+        ctx.fillStyle = 'rgba(255, 152, 0, 0.04)';
+        for (var y = 280; y < 1400; y += 40) {
+            for (var x = 20; x < CW; x += 40) {
+                ctx.beginPath();
+                ctx.arc(x + ((y / 40) % 2) * 20, y, 4, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+    }
+
+    // Top gradient bar with year
+    function drawTopBar() {
+        var tg = ctx.createLinearGradient(0, 0, CW, 0);
+        tg.addColorStop(0, '#7B1818');
+        tg.addColorStop(0.3, '#B71C1C');
+        tg.addColorStop(0.5, '#D84315');
+        tg.addColorStop(0.7, '#B71C1C');
+        tg.addColorStop(1, '#7B1818');
+        ctx.fillStyle = tg;
+        ctx.fillRect(0, 0, CW, 130);
+
+        // Gold decorative line
+        var lg = ctx.createLinearGradient(100, 0, CW - 100, 0);
+        lg.addColorStop(0, 'rgba(255,215,0,0)');
+        lg.addColorStop(0.2, '#FFD54F');
+        lg.addColorStop(0.5, '#FFF176');
+        lg.addColorStop(0.8, '#FFD54F');
+        lg.addColorStop(1, 'rgba(255,215,0,0)');
+        ctx.strokeStyle = lg;
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.moveTo(100, 125);
+        ctx.lineTo(CW - 100, 125);
+        ctx.stroke();
+
+        // Year text
+        ctx.fillStyle = '#FFD54F';
+        ctx.font = '700 40px ' + FONT;
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText('हिंदू नव वर्ष सन २०२६-२७', CW / 2, 65);
+    }
+
+    // Decorative inner border corners
+    function drawDecorativeBorder() {
+        ctx.strokeStyle = 'rgba(255, 152, 0, 0.2)';
+        ctx.lineWidth = 2;
+        var m = 30, sz = 60;
+
+        // Top-left
+        ctx.beginPath();
+        ctx.moveTo(m, m + sz); ctx.lineTo(m, m); ctx.lineTo(m + sz, m);
+        ctx.stroke();
+        // Top-right
+        ctx.beginPath();
+        ctx.moveTo(CW - m - sz, m); ctx.lineTo(CW - m, m); ctx.lineTo(CW - m, m + sz);
+        ctx.stroke();
+        // Bottom-left
+        ctx.beginPath();
+        ctx.moveTo(m, CH - m - sz); ctx.lineTo(m, CH - m); ctx.lineTo(m + sz, CH - m);
+        ctx.stroke();
+        // Bottom-right
+        ctx.beginPath();
+        ctx.moveTo(CW - m, CH - m - sz); ctx.lineTo(CW - m, CH - m); ctx.lineTo(CW - m - sz, CH - m);
+        ctx.stroke();
+    }
+
+    // Logo in circular frame
+    function drawLogo() {
+        var cx = CW / 2, cy = 280, r = 88;
+
+        // Glow
+        ctx.save();
+        ctx.shadowColor = '#FF8F00';
+        ctx.shadowBlur = 25;
+        ctx.beginPath();
+        ctx.arc(cx, cy, r + 6, 0, Math.PI * 2);
+        ctx.fillStyle = 'white';
+        ctx.fill();
+        ctx.restore();
+
+        // Orange ring
+        ctx.beginPath();
+        ctx.arc(cx, cy, r + 6, 0, Math.PI * 2);
+        ctx.strokeStyle = '#E65100';
+        ctx.lineWidth = 4;
+        ctx.stroke();
+
+        // White fill
+        ctx.beginPath();
+        ctx.arc(cx, cy, r, 0, Math.PI * 2);
+        ctx.fillStyle = 'white';
+        ctx.fill();
+
+        // Clip and draw logo
+        if (logoImg.complete && logoImg.naturalWidth > 0) {
+            ctx.save();
+            ctx.beginPath();
+            ctx.arc(cx, cy, r - 2, 0, Math.PI * 2);
+            ctx.clip();
+            ctx.drawImage(logoImg, cx - r + 2, cy - r + 2, (r - 2) * 2, (r - 2) * 2);
+            ctx.restore();
+        }
+    }
+
+    // Organization name
+    function drawOrgName() {
+        ctx.fillStyle = '#7B1818';
+        ctx.font = '800 50px ' + FONT;
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText('जिल्हा परिषद पालघर', CW / 2, 420);
+    }
+
+    // Decorative divider with diamond
+    function drawDivider(y, halfWidth) {
+        var cx = CW / 2;
+        var lg = ctx.createLinearGradient(cx - halfWidth, 0, cx + halfWidth, 0);
+        lg.addColorStop(0, 'rgba(255,152,0,0)');
+        lg.addColorStop(0.25, '#FFB300');
+        lg.addColorStop(0.5, '#FF8F00');
+        lg.addColorStop(0.75, '#FFB300');
+        lg.addColorStop(1, 'rgba(255,152,0,0)');
+
+        ctx.strokeStyle = lg;
+        ctx.lineWidth = 2;
+
+        // Left line
+        ctx.beginPath();
+        ctx.moveTo(cx - halfWidth, y);
+        ctx.lineTo(cx - 14, y);
+        ctx.stroke();
+
+        // Right line
+        ctx.beginPath();
+        ctx.moveTo(cx + 14, y);
+        ctx.lineTo(cx + halfWidth, y);
+        ctx.stroke();
+
+        // Diamond
+        ctx.fillStyle = '#FF8F00';
+        ctx.beginPath();
+        ctx.moveTo(cx, y - 9);
+        ctx.lineTo(cx + 12, y);
+        ctx.lineTo(cx, y + 9);
+        ctx.lineTo(cx - 12, y);
+        ctx.closePath();
+        ctx.fill();
+    }
+
+    // Headline
+    function drawHeadline() {
+        ctx.fillStyle = '#D84315';
+        ctx.font = '900 54px ' + FONT;
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+
+        // Shadow
+        ctx.save();
+        ctx.shadowColor = 'rgba(230, 81, 0, 0.15)';
+        ctx.shadowBlur = 8;
+        ctx.shadowOffsetY = 3;
+        ctx.fillText('" मी जि. प. शाळेचा विद्यार्थी "', CW / 2, 540);
+        ctx.restore();
+    }
+
+    // User photo with decorative frame
+    function drawUserPhoto(photo) {
+        var cx = CW / 2, cy = 760, r = 145;
+
+        // Outer glow
+        ctx.save();
+        ctx.shadowColor = '#FF8F00';
+        ctx.shadowBlur = 30;
+
+        // Gradient ring
+        var rg = ctx.createRadialGradient(cx, cy, r, cx, cy, r + 14);
+        rg.addColorStop(0, '#FFB300');
+        rg.addColorStop(0.5, '#FF8F00');
+        rg.addColorStop(1, '#E65100');
+        ctx.beginPath();
+        ctx.arc(cx, cy, r + 12, 0, Math.PI * 2);
+        ctx.fillStyle = rg;
+        ctx.fill();
+        ctx.restore();
+
+        // White ring
+        ctx.beginPath();
+        ctx.arc(cx, cy, r + 3, 0, Math.PI * 2);
+        ctx.fillStyle = 'white';
+        ctx.fill();
+
+        // Photo area
+        ctx.save();
+        ctx.beginPath();
+        ctx.arc(cx, cy, r, 0, Math.PI * 2);
+        ctx.clip();
+
+        if (photo) {
+            // Cover fit
+            var aspect = photo.width / photo.height;
+            var dw, dh, dx, dy;
+            if (aspect > 1) {
+                dh = r * 2;
+                dw = dh * aspect;
+                dx = cx - dw / 2;
+                dy = cy - r;
+            } else {
+                dw = r * 2;
+                dh = dw / aspect;
+                dx = cx - r;
+                dy = cy - dh / 2;
+            }
+            ctx.drawImage(photo, dx, dy, dw, dh);
+        } else {
+            // Placeholder
+            ctx.fillStyle = '#FFF3E0';
+            ctx.fillRect(cx - r, cy - r, r * 2, r * 2);
+            ctx.fillStyle = '#FFCC80';
+            ctx.font = '400 48px ' + FONT;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('तुमचा फोटो', cx, cy);
+        }
+        ctx.restore();
+
+        // Small decorative dots around the ring
+        ctx.fillStyle = '#FFB300';
+        for (var i = 0; i < 24; i++) {
+            var angle = (i / 24) * Math.PI * 2;
+            var dotX = cx + Math.cos(angle) * (r + 22);
+            var dotY = cy + Math.sin(angle) * (r + 22);
+            ctx.beginPath();
+            ctx.arc(dotX, dotY, 3, 0, Math.PI * 2);
+            ctx.fill();
+        }
+    }
+
+    // User name, role, school
+    function drawUserDetails(name, role, school) {
+        var startY = 970;
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+
+        // Name
+        if (name) {
+            ctx.fillStyle = '#7B1818';
+            ctx.font = '800 58px ' + FONT;
+            ctx.save();
+            ctx.shadowColor = 'rgba(123, 24, 24, 0.1)';
+            ctx.shadowBlur = 4;
+            ctx.shadowOffsetY = 2;
+            wrapText(ctx, name, CW / 2, startY, CW - 120, 65);
+            ctx.restore();
+        }
+
+        // Role
+        if (role) {
+            ctx.fillStyle = '#5D4037';
+            ctx.font = '600 44px ' + FONT;
+            var roleY = name ? startY + 75 : startY;
+            wrapText(ctx, 'पद : ' + role, CW / 2, roleY, CW - 120, 52);
+        }
+
+        // School
+        if (school) {
+            ctx.fillStyle = '#5D4037';
+            ctx.font = '600 44px ' + FONT;
+            var schoolY = name && role ? startY + 150 : (name || role ? startY + 75 : startY);
+            wrapText(ctx, 'शाळा : ' + school, CW / 2, schoolY, CW - 120, 52);
+        }
+    }
+
+    // Banner
+    function drawBanner() {
+        var bannerY = 1240;
+        var bannerW = 860, bannerH = 80;
+        var bx = (CW - bannerW) / 2;
+
+        // Shadow
+        ctx.save();
+        ctx.shadowColor = 'rgba(230, 81, 0, 0.3)';
+        ctx.shadowBlur = 16;
+        ctx.shadowOffsetY = 4;
+
+        // Rounded rect
+        drawRoundRect(ctx, bx, bannerY, bannerW, bannerH, 16);
+        var bg = ctx.createLinearGradient(0, bannerY, 0, bannerY + bannerH);
+        bg.addColorStop(0, '#FF8F00');
+        bg.addColorStop(1, '#E65100');
+        ctx.fillStyle = bg;
+        ctx.fill();
+        ctx.restore();
+
+        // Border
+        drawRoundRect(ctx, bx, bannerY, bannerW, bannerH, 16);
+        ctx.strokeStyle = 'rgba(255,255,255,0.3)';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        // Text
+        ctx.fillStyle = 'white';
+        ctx.font = '800 48px ' + FONT;
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText('गुढीपाडवा पट वाढवा', CW / 2, bannerY + bannerH / 2);
+
+        // Decorative divider above banner
+        drawDivider(bannerY - 30, 380);
+    }
+
+    // Gudi images
+    function drawGudiImages() {
+        if (!gudiImg.complete || gudiImg.naturalWidth === 0) return;
+
+        var gudiH = 480;
+        var gudiW = gudiH * (gudiImg.naturalWidth / gudiImg.naturalHeight);
+        var gudiY = CH - gudiH - 50;
+
+        // Left gudi
+        ctx.drawImage(gudiImg, 40, gudiY, gudiW, gudiH);
+
+        // Right gudi (mirrored)
+        ctx.save();
+        ctx.translate(CW - 40, gudiY);
+        ctx.scale(-1, 1);
+        ctx.drawImage(gudiImg, 0, 0, gudiW, gudiH);
+        ctx.restore();
+
+        // Festive message at bottom center
+        ctx.fillStyle = '#FFD54F';
+        ctx.font = '700 36px ' + FONT;
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText('नव वर्षाच्या हार्दिक शुभेच्छा!', CW / 2, CH - 90);
+    }
+
+    // Bottom bar
+    function drawBottomBar() {
+        var bg = ctx.createLinearGradient(0, CH - 35, CW, CH - 35);
+        bg.addColorStop(0, '#7B1818');
+        bg.addColorStop(0.3, '#B71C1C');
+        bg.addColorStop(0.5, '#D84315');
+        bg.addColorStop(0.7, '#B71C1C');
+        bg.addColorStop(1, '#7B1818');
+        ctx.fillStyle = bg;
+        ctx.fillRect(0, CH - 35, CW, 35);
+    }
+
+    // Card outer border
+    function drawCardBorder() {
+        ctx.strokeStyle = '#B71C1C';
+        ctx.lineWidth = 6;
+        ctx.strokeRect(3, 3, CW - 6, CH - 6);
+
+        // Inner gold line
+        ctx.strokeStyle = 'rgba(255, 193, 7, 0.4)';
+        ctx.lineWidth = 2;
+        ctx.strokeRect(12, 12, CW - 24, CH - 24);
+    }
+
+    // =========================================================
+    // HELPERS
+    // =========================================================
+
+    function drawRoundRect(c, x, y, w, h, r) {
+        c.beginPath();
+        c.moveTo(x + r, y);
+        c.lineTo(x + w - r, y);
+        c.quadraticCurveTo(x + w, y, x + w, y + r);
+        c.lineTo(x + w, y + h - r);
+        c.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+        c.lineTo(x + r, y + h);
+        c.quadraticCurveTo(x, y + h, x, y + h - r);
+        c.lineTo(x, y + r);
+        c.quadraticCurveTo(x, y, x + r, y);
+        c.closePath();
+    }
+
+    function wrapText(c, text, x, y, maxWidth, lineHeight) {
+        var words = text.split(' ');
+        var line = '';
+        var lines = [];
+
+        for (var i = 0; i < words.length; i++) {
+            var testLine = line + (line ? ' ' : '') + words[i];
+            var metrics = c.measureText(testLine);
+            if (metrics.width > maxWidth && line) {
+                lines.push(line);
+                line = words[i];
+            } else {
+                line = testLine;
+            }
+        }
+        lines.push(line);
+
+        var totalHeight = lines.length * lineHeight;
+        var startY = y - (totalHeight - lineHeight) / 2;
+
+        for (var j = 0; j < lines.length; j++) {
+            c.fillText(lines[j], x, startY + j * lineHeight);
+        }
+    }
+
+})();
+</script>
+
+</body>
+</html>
